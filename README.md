@@ -1,7 +1,7 @@
 # GraphCLIP
 ![](assets/graphclip.png)
 
-> We will make the datasets we used available after acceptance.
+> We will make all the datasets we used available after the anonymous phase.
 
 ## Pretraining on source data
 ```

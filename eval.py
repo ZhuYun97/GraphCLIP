@@ -96,7 +96,7 @@ attn_kwargs = {'dropout': 0.0}
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 text_model = 'tiny'
 model = GraphCLIP(384, 1024, 12, attn_kwargs, text_model=text_model)
-model.load_state_dict(torch.load("./ckpts/graphclip.pt"), strict=False)
+model.load_state_dict(torch.load("./checkpoints/graphclip.pt"), strict=False)
 
 model.to(device)
 

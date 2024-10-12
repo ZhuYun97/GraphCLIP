@@ -1,0 +1,1 @@
+Considering the substantial size of the checkpoint file, we will release our pretrained checkpoint on Google Drive after the anonymous phase.

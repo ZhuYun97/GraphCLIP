@@ -224,6 +224,6 @@ print(f"Let's use {torch.cuda.device_count()} GPUs!")
 for epoch in range(1, num_epochs):
     loss = train(train_loader)
     res_str = f"Epoch: {epoch:02d}, Loss: {loss:.4f},"
-    torch.save(model.state_dict(), f="./ckpts/graphclip.pt")
+    torch.save(model.state_dict(), f="./checkpoints/graphclip.pt")
 
 

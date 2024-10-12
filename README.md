@@ -1,7 +1,7 @@
 # GraphCLIP
 ![](assets/graphclip.png)
 
-> We will make all the datasets we used available after the anonymous phase.
+> We will release our pretrained checkpoint and all the datasets we used  on Google Driver after the anonymous phase.
 
 ## Pretraining on source data
 ```

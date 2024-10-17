@@ -10,6 +10,7 @@ CUDA_VISIBLE_DEVICES=0,1 python train.py --source_data pubmed
 ```
 
 > --source_data obgn-arxiv\*arxiv\_2023\*pubmed\*ogbn-products\*reddit is used in our paper
+
 > This code supports Data Parallel, you can assign multiple gpus here.
 ## Zero-shot learning on target data
 ```

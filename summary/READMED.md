@@ -1,1 +1,1 @@
-We provide the smallest source data here, while larger datasets will be available on Google Drive after the anonymous phase.
+We provide the smallest source data here, i.e., pubmed, while larger datasets will be available on Google Drive after the anonymous phase.

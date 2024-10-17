@@ -7,8 +7,8 @@ import random
 
 
 def get_raw_text_citeseer(use_text=False, seed=0):
-    if osp.exists(f"./preprocessed_data/new/citeseer_random_sbert.pt"):
-        data = torch.load(f"./preprocessed_data/new/citeseer_random_sbert.pt", map_location='cpu')
+    if osp.exists(f"./preprocessed_data/citeseer.pt"):
+        data = torch.load(f"./preprocessed_data/citeseer.pt", map_location='cpu')
         data.edge_index = to_undirected(data.edge_index)
         
         torch.manual_seed(seed)

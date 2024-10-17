@@ -1,4 +1,7 @@
 import torch
+from torch_geometric.utils import dropout_edge
+import  copy
+
 
 def adversarial_aug_train(model_graph, model_text, node_attack, perturb_shapes, step_size, m):
     model_graph.train()
@@ -24,3 +27,14 @@ def adversarial_aug_train(model_graph, model_text, node_attack, perturb_shapes, 
 
     return loss
 
+def graph_aug(g, f_p, e_p):
+    new_g = copy.deepcopy(g)
+    drop_mask = torch.empty(
+        (g.x.size(1), ),
+        dtype=torch.float32,
+        device=g.x.device).uniform_(0, 1) < f_p
+    
+    new_g.x[:, drop_mask] = 0
+    e, _ = dropout_edge(new_g.edge_index, p=e_p)
+    new_g.edge_index = e
+    return new_g

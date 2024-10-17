@@ -7,6 +7,7 @@ import torch_geometric.transforms as T
 from sklearn.preprocessing import normalize
 import json
 import pandas as pd
+import os.path as osp
 
 # return pubmed dataset as pytorch geometric Data object together with 60/20/20 split, and list of pubmed IDs
 data_path = '../datasets'
@@ -135,6 +136,34 @@ def parse_pubmed():
 
 
 def get_raw_text_pubmed(use_text=False, seed=0):
+    if osp.exists(f"./preprocessed_data/pubmed.pt"):
+        data = torch.load(f"./preprocessed_data/pubmed.pt", map_location='cpu')
+        # data.edge_index = to_undirected(data.edge_index)
+        
+        torch.manual_seed(seed)
+        if torch.cuda.is_available():
+            torch.cuda.manual_seed(seed)
+        np.random.seed(seed)  # Numpy module.
+        random.seed(seed)  # Python random module.
+        
+        # split data
+        node_id = np.arange(data.num_nodes)
+        np.random.shuffle(node_id)
+
+        data.train_id = np.sort(node_id[:int(data.num_nodes * 0.6)])
+        data.val_id = np.sort(
+            node_id[int(data.num_nodes * 0.6):int(data.num_nodes * 0.8)])
+        data.test_id = np.sort(node_id[int(data.num_nodes * 0.8):])
+        
+
+        data.train_mask = torch.tensor(
+            [x in data.train_id for x in range(data.num_nodes)])
+        data.val_mask = torch.tensor(
+            [x in data.val_id for x in range(data.num_nodes)])
+        data.test_mask = torch.tensor(
+            [x in data.test_id for x in range(data.num_nodes)])
+
+        return data, data.raw_texts
     data, data_pubid = get_pubmed_casestudy(SEED=seed)
     if not use_text:
         return data, None

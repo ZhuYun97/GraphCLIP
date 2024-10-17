@@ -3,7 +3,6 @@ import torch
 import torch.nn.functional as F
 from torch.nn import ModuleList
 from torch.nn import BatchNorm1d, Identity
-from torch_geometric.nn.inits import glorot
 
 
 def get_activation(name: str):

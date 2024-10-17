@@ -104,8 +104,8 @@ def load_data(dataset, seed=0):
         exit(f'Error: Dataset {dataset} not supported')
 
     data, text = get_raw_text(use_text=True, seed=seed) 
-    node_embeds = torch.load(f"./graphtext/tiny_mean_{dataset}.pt")
-    data.x = node_embeds
+    # node_embeds = torch.load(f"./graphtext/tiny_mean_{dataset}.pt")
+    # data.x = node_embeds
       
     return data, text, classes, c_descs
 

@@ -1,10 +1,6 @@
 from transformers import AutoModel
 import numpy as np
 import torch
-from torch import Tensor
-from peft import get_peft_model, LoraConfig, TaskType, LoraModel, PromptTuningConfig
-
-from .projector import Projector
 from .gt import GPS
 
 

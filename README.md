@@ -1,4 +1,4 @@
-# GraphCLIP
+# GraphCLIP: Enhancing Transferability in Graph Foundation Models for Text-Attributed Graphs
 ![](assets/graphclip.png)
 
 > We will release our pretrained checkpoint and all the datasets we used  on Google Driver after the anonymous phase.

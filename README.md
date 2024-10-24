@@ -6,7 +6,7 @@
 ## Pretraining on source data
 ```
 # We provide the smallest source data (pubmed) for runing our codes
-CUDA_VISIBLE_DEVICES=0,1 python train.py --source_data pubmed
+CUDA_VISIBLE_DEVICES=0,1 python train.py --source_data pubmed --batch_size 1024
 ```
 
 > --source_data obgn-arxiv\*arxiv\_2023\*pubmed\*ogbn-products\*reddit is used in our paper

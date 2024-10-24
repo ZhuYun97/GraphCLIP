@@ -42,6 +42,8 @@ def parse_target_data(name, data):
     for id, jd in enumerate(json_data):
         assert id == jd['id']
         edges = torch.tensor(jd['graph'])
+        if edges.shape[1] == 0:
+            edges = torch.tensor([[id],[id]])
         # summary = jd['summary']
         # reindex
         node_idx = torch.unique(edges)

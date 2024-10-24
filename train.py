@@ -53,7 +53,7 @@ if __name__ == "__main__":
     attn_kwargs = {'dropout': 0.0}
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     text_model = config.lm_type
-    model = GraphCLIP(384, 1024, 12, attn_kwargs, text_lora=False, text_model=text_model)
+    model = GraphCLIP(384, 1024, 12, attn_kwargs, text_model=text_model)
 
     # freeze text model
     model.freeze_text()
@@ -91,6 +91,7 @@ if __name__ == "__main__":
     for epoch in range(1, config.epochs):
         loss = train(train_loader)
         res_str = f"Epoch: {epoch:02d}, Loss: {loss:.4f},"
+        print(res_str)
         torch.save(model.state_dict(), f="./checkpoints/graphclip.pt")
 
 

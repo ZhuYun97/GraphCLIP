@@ -136,8 +136,8 @@ def parse_pubmed():
 
 
 def get_raw_text_pubmed(use_text=False, seed=0):
-    if osp.exists(f"./preprocessed_data/pubmed.pt"):
-        data = torch.load(f"./preprocessed_data/pubmed.pt", map_location='cpu')
+    if osp.exists(f"./processed_data/pubmed.pt"):
+        data = torch.load(f"./processed_data/pubmed.pt", map_location='cpu')
         # data.edge_index = to_undirected(data.edge_index)
         
         torch.manual_seed(seed)

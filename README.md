@@ -3,9 +3,20 @@
 
 > We will release our pretrained checkpoint and all the datasets we used  on Google Driver after the anonymous phase.
 
+## Environment Setup
+```
+conda create -n graphclip python=3.10
+conda activate graphclip
+pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/cu121
+pip install torch_geometric
+```
+
 ## Pretraining on source data
 ```
 # We provide the smallest source data (pubmed) for running our codes
+# single gpu
+CUDA_VISIBLE_DEVICES=0 python train.py --source_data pubmed --batch_size 1024 --epochs 30
+# multiple gpus
 CUDA_VISIBLE_DEVICES=0,1 python train.py --source_data pubmed --batch_size 1024 --epochs 30
 ```
 

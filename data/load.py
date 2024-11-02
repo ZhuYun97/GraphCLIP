@@ -97,7 +97,6 @@ def load_data(dataset, seed=0):
         c_descs=[" who typically shares personal moments and engages with friends and family, focusing on social connections and self-expression through photos and stories. Their primary goal is to enjoy and explore content that reflects their interests and lifestyle.", " who leverages the platform to promote products or services, utilizing targeted advertising and engaging content to reach potential customers. Their focus is on brand growth and customer interaction, often employing analytics to refine strategies and enhance reach."]
     elif dataset == 'reddit':
         from data.data_utils.load_reddit import get_raw_text_reddit as get_raw_text
-        num_classes = 2
         classes = ['Normal Users', 'Popular Users']
         c_descs=["", ""]
     else:

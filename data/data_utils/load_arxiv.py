@@ -2,10 +2,16 @@ from ogb.nodeproppred import PygNodePropPredDataset
 import torch_geometric.transforms as T
 import torch
 import pandas as pd
-import numpy as np
+import os.path as osp
+
 
 data_path = '../datasets'
 def get_raw_text_arxiv(use_text=False, seed=0):
+    if osp.exists(f"./processed_data/arxiv.pt"):
+        data = torch.load(f"./processed_data/arxiv.pt", map_location='cpu')
+        data.num_nodes = data.y.shape[0]
+        raw_texts = [] # we do not need raw texts for source data, because we already transform them into node features use miniLM
+        return data, raw_texts
 
     dataset = PygNodePropPredDataset(root=data_path,
         name='ogbn-arxiv', transform=T.ToSparseTensor())

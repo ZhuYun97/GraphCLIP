@@ -9,6 +9,7 @@ class Arguments:
         self.parser.add_argument('--target_data', type=str, help="dataset name", default='citeseer')
         
         # Model configuration
+        self.parser.add_argument('--ckpt', type=str, help="the name of checkpoint", default='graphclip')
         self.parser.add_argument('--layer_num', type=int, help="the number of encoder's layers", default=2)
         self.parser.add_argument('--hidden_size', type=int, help="the hidden size", default=64)
         self.parser.add_argument('--dropout', type=float, help="dropout rate", default=0.5)

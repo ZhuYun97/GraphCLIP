@@ -77,18 +77,18 @@ def load_data(dataset, seed=0):
     elif dataset == 'photo':
         from data.data_utils.load_photo import get_raw_text_photo as get_raw_text
         num_classes = 12
-        class_desc = pd.read_csv("./graphtext/categories/photo_categories.csv")
+        class_desc = pd.read_csv("./processed_data/categories/photo_categories.csv")
         classes = class_desc['name'].tolist()
         c_descs = class_desc['description'].tolist()
     elif dataset == 'computer':
         from data.data_utils.load_computer import get_raw_text_computer as get_raw_text
         num_classes = 12
-        class_desc = pd.read_csv("./graphtext/categories/computer_categories.csv")
+        class_desc = pd.read_csv("./processed_data/categories/computer_categories.csv")
         classes = class_desc['name'].tolist()
         c_descs = class_desc['description'].tolist()
     elif dataset == 'history':
         from data.data_utils.load_history import get_raw_text_history as get_raw_text
-        class_desc = pd.read_csv("./graphtext/categories/history_categories.csv")
+        class_desc = pd.read_csv("./processed_data/categories/history_categories.csv")
         classes = class_desc['name'].tolist()
         c_descs = class_desc['description'].tolist()
     elif dataset == "instagram":
@@ -103,8 +103,6 @@ def load_data(dataset, seed=0):
         exit(f'Error: Dataset {dataset} not supported')
 
     data, text = get_raw_text(use_text=True, seed=seed) 
-    # node_embeds = torch.load(f"./graphtext/tiny_mean_{dataset}.pt")
-    # data.x = node_embeds
       
     return data, text, classes, c_descs
 

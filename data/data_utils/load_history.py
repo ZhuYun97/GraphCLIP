@@ -7,9 +7,8 @@ import numpy as np
 
 
 def get_raw_text_history(use_text=False, seed=0):
-    if osp.exists(f"./preprocessed_data/new/history.pt"):
-        data = torch.load(f"./preprocessed_data/new/history.pt", map_location='cpu')
-        data.y = data.label
+    if osp.exists(f"./processed_data/history.pt"):
+        data = torch.load(f"./processed_data/history.pt", map_location='cpu')
         # data.x = data.x.float() # Half into Float
         edge_index = to_undirected(data.edge_index)
         # edge_index, _ = add_self_loops(data.edge_index)

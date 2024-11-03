@@ -201,20 +201,10 @@ def ego_graphs_sampler(node_idx, data, hop=2, sparse=False):
         edge_index, _ = to_edge_index(data.edge_index)
     else:
         edge_index  = data.edge_index
-    row, col = edge_index
-    num_nodes = data.x.shape[0]
     for idx in node_idx.numpy().tolist():
         subset, sub_edge_index, mapping, edge_mask = k_hop_subgraph([idx], hop, edge_index, relabel_nodes=False)
         # sub_edge_index = to_undirected(sub_edge_index)
-        pos = torch.where(idx==subset)[0].item()
-        if pos != 0:
-            tmp = subset[0].item()
-            subset[0] = idx
-            subset[pos] = tmp
         sub_x = data.x[subset]
-        mapping = row.new_full((num_nodes, ), -1)
-        mapping[subset] = torch.arange(subset.size(0), device=row.device)
-        sub_edge_index = mapping[sub_edge_index]
 
         # center_idx = subset[mapping].item() # node idx in the original graph, use idx instead
         g = Data(x=sub_x, edge_index=sub_edge_index, root_n_index=mapping, y=data.y[idx], original_idx=subset) # note: there we use root_n_index to record the index of target node, because `PyG` increments attributes by the number of nodes whenever their attribute names contain the substring :obj:`index`
@@ -222,3 +212,32 @@ def ego_graphs_sampler(node_idx, data, hop=2, sparse=False):
         g['neig_idx'] = subset
         ego_graphs.append(g)
     return ego_graphs
+
+
+# def ego_graphs_sampler(node_idx, data, hop=2, sparse=False):
+#     ego_graphs = []
+#     if sparse:
+#         edge_index, _ = to_edge_index(data.edge_index)
+#     else:
+#         edge_index  = data.edge_index
+#     row, col = edge_index
+#     num_nodes = data.x.shape[0]
+#     for idx in node_idx.numpy().tolist():
+#         subset, sub_edge_index, mapping, edge_mask = k_hop_subgraph([idx], hop, edge_index, relabel_nodes=False)
+#         # sub_edge_index = to_undirected(sub_edge_index)
+#         pos = torch.where(idx==subset)[0].item()
+#         if pos != 0:
+#             tmp = subset[0].item()
+#             subset[0] = idx
+#             subset[pos] = tmp
+#         sub_x = data.x[subset]
+#         mapping = row.new_full((num_nodes, ), -1)
+#         mapping[subset] = torch.arange(subset.size(0), device=row.device)
+#         sub_edge_index = mapping[sub_edge_index]
+
+#         # center_idx = subset[mapping].item() # node idx in the original graph, use idx instead
+#         g = Data(x=sub_x, edge_index=sub_edge_index, root_n_index=mapping, y=data.y[idx], original_idx=subset) # note: there we use root_n_index to record the index of target node, because `PyG` increments attributes by the number of nodes whenever their attribute names contain the substring :obj:`index`
+#         g['center_idx'] = idx
+#         g['neig_idx'] = subset
+#         ego_graphs.append(g)
+#     return ego_graphs

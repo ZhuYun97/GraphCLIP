@@ -1,6 +1,6 @@
 from torch_geometric.loader import DataListLoader, DataLoader
 
-
+# for data parallel
 def split_dataloader(data, graphs, batch_size):
     train_idx = data.train_mask.nonzero().squeeze()
     val_idx = data.val_mask.nonzero().squeeze()
@@ -15,7 +15,7 @@ def split_dataloader(data, graphs, batch_size):
 
     return train_loader, val_loader, test_loader
 
-def split_dl(data, graphs, batch_size):
+def split_dataloader_singlecard(data, graphs, batch_size):
     train_idx = data.train_mask.nonzero().squeeze()
     val_idx = data.val_mask.nonzero().squeeze()
     test_idx = data.test_mask.nonzero().squeeze()

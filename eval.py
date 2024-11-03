@@ -50,7 +50,7 @@ if __name__ == "__main__":
     attn_kwargs = {'dropout': 0.0}
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model = GraphCLIP(384, 1024, 12, attn_kwargs, text_model=config.lm_type)
-    model.load_state_dict(torch.load("./checkpoints/graphclip.pt"), strict=False)
+    model.load_state_dict(torch.load(f"./checkpoints/{config.ckpt}.pt"), strict=False)
     tokenizer = AutoTokenizer.from_pretrained('sentence-transformers/all-MiniLM-L6-v2')
     model.to(device)
     print("mdoel is loaded")

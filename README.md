@@ -48,7 +48,7 @@ CUDA_VISIBLE_DEVICES=0 python train.py --source_data pubmed --batch_size 1024 --
 CUDA_VISIBLE_DEVICES=0,1 python train.py --source_data pubmed --batch_size 1024 --epochs 30
 ```
 
-> --source_data obgn-arxiv\*arxiv\_2023\*pubmed\*ogbn-products\*reddit is used in our paper, use \* gather multiple source datasets.
+> --source_data obgn-arxiv+arxiv\_2023+pubmed+ogbn-products+reddit is used in our paper, use + gather multiple source datasets.
 
 > This code supports Data Parallel, you can assign multiple gpus here.
 ## Zero-shot learning on target data
@@ -57,4 +57,4 @@ CUDA_VISIBLE_DEVICES=0,1 python train.py --source_data pubmed --batch_size 1024 
 CUDA_VISIBLE_DEVICES=0 python eval.py --target_data citeseer
 ```
 
-> more target datasets can be evaluated in the future version: --target_data cora\*citeseer\*wikics\*histagram\*photo\*computer\*history
+> more target datasets can be evaluated in the future version: --target_data cora+citeseer+wikics+instagram+photo+computer+history

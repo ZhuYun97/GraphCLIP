@@ -56,7 +56,7 @@ if __name__ == "__main__":
     print("mdoel is loaded")
     
     ################ target data
-    target_data = config.target_data.split("*") # testing citeseer dataset, you can add more datasets here
+    target_data = config.target_data.split("+") # testing citeseer dataset, you can add more datasets here
     target_datasets = target_data
     target_classes_list = []
     target_c_desc_list = []

@@ -75,7 +75,7 @@ if __name__ == "__main__":
     optimizer = torch.optim.AdamW(filter(lambda p: p.requires_grad,model.parameters()), lr=config.lr, weight_decay=config.weight_decay)
     
     # collect source data
-    source_name_list = config.source_data.split("*")
+    source_name_list = config.source_data.split("+")
     all_source_graph = []
     for source_name in source_name_list:
         source_data, source_text, source_classes, source_c_descs = load_data(source_name)

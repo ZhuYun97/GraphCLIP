@@ -7,8 +7,8 @@ import numpy as np
 
 
 def get_raw_text_instagram(use_text=False, seed=0):
-    if osp.exists(f"./preprocessed_data/new/instagram.pt"):
-        data = torch.load(f"./preprocessed_data/new/instagram.pt", map_location='cpu')
+    if osp.exists(f"./processed_data/instagram.pt"):
+        data = torch.load(f"./processed_data/instagram.pt", map_location='cpu')
         # data.x = data.x.float() # Half into Float
         edge_index = to_undirected(data.edge_index)
         # edge_index, _ = add_self_loops(data.edge_index)

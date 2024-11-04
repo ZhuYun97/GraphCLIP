@@ -58,7 +58,7 @@ pip install torch_geometric
 
 To get started, download our [released checkpoint](https://drive.google.com/file/d/1lN6CXqUDAklX2S1KAJXfm_kzG99celuf/view?usp=sharing) and unzip the content. Place the extracted files into the `checkpoints` directory. You can then use this checkpoint directly on your target datasets, as outlined in the next section.
 
-### Or you can training from scratch
+### Or training from scratch
 ```
 # We provide the smallest source data (pubmed) for running our codes
 # single gpu

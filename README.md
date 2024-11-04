@@ -36,9 +36,9 @@ pip install torch_geometric
 |OGBN-ArXiv|[Google Drive](https://drive.google.com/file/d/1fAiycw9s22hhVGLO_FbVMoyIMkOkC6UL/view?usp=sharing)|
 |ArXiv\_2023|[Google Drive](https://drive.google.com/file/d/1hvVaQtxy7y92KM2I-WY1ZOmwjaUfufi5/view?usp=sharing)|
 |Reddit|[Google Drive](https://drive.google.com/file/d/1KWTMMByOsnDod78ueEufeN2jNdq99IGk/view?usp=sharing)|
-|OGBN-Products|TODO|
+|OGBN-Products|[Google Drive](https://drive.google.com/file/d/1vRNT9n2UMx_-nFEG4IB6kkV408TxYUSb/view?usp=sharing)|
 
-4. Once downloaded, unzip the files and place them in the `processed_data` directory.
+1. Once downloaded, unzip the files and place them in the `processed_data` directory.
 
 ### For target data
 1. For target datasets, we only need to download processed data, unzip them and put them into `processed_data` directory. 

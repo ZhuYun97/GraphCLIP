@@ -4,7 +4,7 @@ class Arguments:
     def __init__(self) -> None:
         self.parser = argparse.ArgumentParser()
         # Dataset
-        # self.parser.add_argument('--dataset', type=str, help="dataset name", default='cora')
+        self.parser.add_argument('--dataset', type=str, help="dataset name", default='cora')
         self.parser.add_argument('--source_data', type=str, help="dataset name", default='pubmed')
         self.parser.add_argument('--target_data', type=str, help="dataset name", default='citeseer')
         

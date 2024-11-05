@@ -1,0 +1,7 @@
+# all pyc files_
+**/__pycache__
+
+**/.vscode
+*.ipynb
+
+checkpoints/pretrained_graphclip.pt

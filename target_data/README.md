@@ -1,0 +1,1 @@
+As for target subgraphs, please run `bash gen_target_subg.sh` to generate subgraphs for each target dataset.

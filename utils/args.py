@@ -21,8 +21,8 @@ class Arguments:
                                  choices=['GNN'])
         self.parser.add_argument('--norm', type=str, help="the type of normalization, id denotes Identity(w/o norm), bn is batchnorm, ln is layernorm", default='id', 
                                  choices=['id', 'bn', 'ln'])
-        self.parser.add_argument('--encoder', type=str, help="the type of encoder", default='GCN_Encoder', 
-                                 choices=['GCN_Encoder', 'GAT_Encoder', 'SAGE_Encoder', 'GIN_Encoder', 'MLP_Encoder', 'GCNII_Encoder'])
+        # self.parser.add_argument('--encoder', type=str, help="the type of encoder", default='GCN_Encoder', 
+        #                          choices=['GCN_Encoder', 'GAT_Encoder', 'SAGE_Encoder', 'GIN_Encoder', 'MLP_Encoder', 'GCNII_Encoder'])
         # Training settings
         self.parser.add_argument('--optimizer', type=str, help="the kind of optimizer", default='adam', 
                                  choices=['adam', 'sgd', 'adamw', 'nadam', 'radam'])

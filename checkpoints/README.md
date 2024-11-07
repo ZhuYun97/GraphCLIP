@@ -1,1 +1,1 @@
-Considering the substantial size of the checkpoint file, we will release our pretrained checkpoint on Google Drive after the anonymous phase.
+Download our [released checkpoint](https://drive.google.com/file/d/178RikDLXPy-4eMGDhG5V6RzmlJhp-8fy/view?usp=sharing), unzip it and put the extracted `pretrained_graphclip.pt` in this directory.

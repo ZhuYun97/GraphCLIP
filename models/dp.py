@@ -4,10 +4,10 @@ import torch
 def calculate_loss(graph_logits, text_logits, criterion):
     batch_size = graph_logits.shape[0]
     gt = torch.arange(batch_size).to(graph_logits.device)
-    total_train_image_loss = criterion(graph_logits, gt)
+    total_train_graph_loss = criterion(graph_logits, gt)
     total_train_text_loss = criterion(text_logits, gt)
     
-    total_train_loss = (total_train_image_loss + total_train_text_loss)/2
+    total_train_loss = (total_train_graph_loss + total_train_text_loss)/2
     return total_train_loss
 
 def create_logits(x1,x2,logit_scale):

@@ -78,13 +78,14 @@ if __name__ == "__main__":
     source_name_list = config.source_data.split("+")
     all_source_graph = []
     for source_name in source_name_list:
-        source_data, source_text, source_classes, source_c_descs = load_data(source_name)
+        # source_data, source_text, source_classes, source_c_descs = load_data(source_name)
+        source_data = torch.load(f"processed_data/{source_name}.pt") # use processed graph data
         source_graph = parse_source_data(source_name, source_data)
         all_source_graph.extend(source_graph)
     
     print(f"We have {len(all_source_graph)} pretraining graphs")
 
-    train_loader = DataListLoader(source_graph, batch_size=config.batch_size, shuffle=True) # use DataListLoader for DP rather than DataLoader
+    train_loader = DataListLoader(all_source_graph, batch_size=config.batch_size, shuffle=True) # use DataListLoader for DP rather than DataLoader
 
     print(f"Let's use {torch.cuda.device_count()} GPUs!")
 

@@ -66,7 +66,7 @@ CUDA_VISIBLE_DEVICES=0 python train.py --source_data pubmed --batch_size 1024 --
 # multiple gpus
 CUDA_VISIBLE_DEVICES=0,1 python train.py --source_data pubmed --batch_size 1024 --epochs 30
 # reproduce our results
-CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python train.py --source_data ogbn-arxiv+arxiv\_2023+pubmed+ogbn-products+reddit --batch_size 7200 --epochs 30
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python train.py --source_data ogbn-arxiv+arxiv_2023+pubmed+ogbn-products+reddit --batch_size 7200 --epochs 30
 ```
 
 > We use 8 A100(40G) GPUs for pretraining with ~7 hours  

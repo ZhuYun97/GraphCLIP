@@ -3,6 +3,7 @@ import json
 from torch_geometric.data import Data
 from torch_geometric.loader import DataLoader
 import torch_geometric.transforms as T
+from tqdm import tqdm
 
 
 def parse_source_data(name, data):
@@ -15,7 +16,8 @@ def parse_source_data(name, data):
 
     collected_graph_data = []
     # collected_text_data = []
-    for id, jd in enumerate(json_data):
+    print("process", name)
+    for id, jd in enumerate(tqdm(json_data)):
         assert id == jd['id']
         edges = torch.tensor(jd['graph'])
         summary = jd['summary']

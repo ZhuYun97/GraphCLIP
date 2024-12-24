@@ -6,6 +6,7 @@ from torch_geometric import seed_everything
 from torch_geometric.data import Data
 from torch_geometric.nn import DataParallel
 from transformers import AutoTokenizer
+from tqdm import tqdm
 
 from data.load import load_data
 from models import GraphCLIP
@@ -18,7 +19,7 @@ from models.dp import TextCLIP, GCLIP, calculate_loss, create_logits
 def train(data_loader):
     total_loss = 0
     criterion  = torch.nn.CrossEntropyLoss()
-    for batch in data_loader:
+    for batch in tqdm(data_loader):
         optimizer.zero_grad()
         model.train()
         

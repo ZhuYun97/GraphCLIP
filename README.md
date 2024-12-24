@@ -65,9 +65,11 @@ To get started, download our [released checkpoint](https://drive.google.com/file
 CUDA_VISIBLE_DEVICES=0 python train.py --source_data pubmed --batch_size 1024 --epochs 30
 # multiple gpus
 CUDA_VISIBLE_DEVICES=0,1 python train.py --source_data pubmed --batch_size 1024 --epochs 30
+# reproduce our results
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python train.py --source_data ogbn-arxiv+arxiv\_2023+pubmed+ogbn-products+reddit --batch_size 7200 --epochs 30
 ```
 
-> --source_data ogbn-arxiv+arxiv\_2023+pubmed+ogbn-products+reddit is used in our paper, use + gather multiple source datasets.
+> We use 8 A100(40G) GPUs for pretraining with ~7 hours  
 
 > This code supports Data Parallel, you can assign multiple gpus here.
 ## 4. Zero-shot learning on target data

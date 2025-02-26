@@ -84,4 +84,7 @@ To reproduce our experiments, use the `--ckpt` flag to specify the pretrained ch
 CUDA_VISIBLE_DEVICES=0 python eval.py --target_data cora+citeseer+wikics+instagram+photo+computer+history --ckpt pretrained_graphclip
 ```
 
-
+## (a) Generate graph summaries locally
+```
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python generate_summary.py --dataset arxiv_2023 --walk_step 128 --restart 0.8
+```
